@@ -1,0 +1,22 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy the .env file (optional for Gemini, unless used elsewhere)
+COPY .env .
+
+# Copy and install dependencies
+COPY ./autogen/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ✅ Install Gemini SDK AFTER installing requirements.txt to avoid conflicts
+RUN pip install --no-cache-dir --upgrade google-generativeai
+
+# Copy the app/scripts
+COPY ./autogen/scripts/ .
+
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]
+

